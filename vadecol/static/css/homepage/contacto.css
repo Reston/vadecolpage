@@ -1,0 +1,139 @@
+h2{
+	text-transform: uppercase;
+}
+.tituloOpcionInfo{
+	text-transform: uppercase;
+	font-weight: 400;
+	color: #161D39;
+}
+.banner{
+	background: url(../../img/bannercontacto.png) no-repeat;
+	background-size: cover;
+	min-height: 229px; 
+	color: white;
+	font-size: 2em;
+}
+.banner .textBanner{
+	text-align: center;
+	padding-top: 5%; 
+	font-weight: 400;
+}
+.banner .textBanner span{
+	display: block;
+	font-size: 0.76em;
+	font-weight: 300;
+}
+.informacionContacto, .formularioContacto{
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}
+.opcionInfo{
+	margin-bottom: 60px;
+	font-size: 1.5em;
+}
+.telefonosNumeros{
+	margin: 0;
+	padding: 0;
+}
+.telefonosNumeros li{
+	display: block;
+}
+.infoOpcion{
+	color: #2B2B2B;
+}
+.formularioContacto{
+	position: relative;
+	vertical-align: top;
+	display: inline-block;
+	width: 49%;
+	z-index: 5;
+}
+.campo{
+	margin: 0 auto 10px auto;
+}
+
+.campo input{
+	background: white;
+	border: 1px solid #CCCCCC;
+	text-indent: 5px;
+	height: 33px;
+	width: 84%;
+}
+
+.campo label{
+	float: left;
+	width: 350px;
+	margin-bottom: 3px;
+}
+textarea{
+	background: white;
+	border: 1px solid #CCCCCC;
+	width: 84%;
+}
+.errorlist{
+	border: 1px solid #F00;
+	background: #FFC0CB;
+	color: #F00;
+	list-style: none;
+	margin: 10px 0;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 82%;
+	text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+	padding: 10px 0 10px 2%;
+}
+.enviado{
+	border: 1px solid #008000;
+	background: lightgreen;
+	color: #008000;
+	margin: 10px 0;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 82%;
+	text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+	padding: 10px 0 10px 2%;
+}
+input[type="submit"]{
+	margin-top: 10px;
+	background: #161D39;
+	padding: 5px 20px;
+	border: none;
+	color: white;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.map {
+	margin-top: 30px;
+	width: 100%;
+	height: 350px;
+}
+#map-canvas {
+	height: 100%;
+}
+
+.tituloOpcionInfo .telefonos, .tituloOpcionInfo .correo, .tituloOpcionInfo .direccion{
+	position: relative;
+	font-size: 2.3em;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-left: 55px;
+}
+.tituloOpcionInfo .telefonos::before, .tituloOpcionInfo .correo::before, .tituloOpcionInfo .direccion::before{
+	background: url(../../img/contacticons.png) no-repeat 0 0;
+	content: "";
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: -60px;
+	top: -47px;
+}
+.tituloOpcionInfo .telefonos::before{
+	background-position: 0 0; 
+}
+.tituloOpcionInfo .correo::before{
+	background-position: -60px 0;
+}
+.tituloOpcionInfo .direccion::before{
+	background-position: -120px 0;
+}

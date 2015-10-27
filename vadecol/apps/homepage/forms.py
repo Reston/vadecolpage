@@ -21,10 +21,20 @@ class HoneypotWidget(forms.TextInput):
 
 
 class contactForm(forms.Form):
-	nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Su nombre'}))
+	nombre = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Su nombre o empresa'}))
+	rif = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'J-99999999-9 | 9999999'}))
 	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	telefono = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Su número de teléfono'}))
 	texto = forms.CharField(widget=forms.Textarea)
+	website = forms.CharField(widget=HoneypotWidget, required=False)
+
+	def clean_website(self):
+		cd = self.cleaned_data
+		website = cd.get('website')
+		if len(website)>0:
+			raise forms.ValidationError('Anti-spam field changed in value.')
+		if website != '':
+			raise forms.ValidationError('Anti-spam field changed in value.')
 
 	def clean_asunto(self):
 		cd = self.cleaned_data

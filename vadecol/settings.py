@@ -2,7 +2,6 @@
 # Django settings for basicoDuranjo project.
 import os
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
@@ -16,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'duranjobasic_db',                      # Or path to database file if using sqlite3.
+        'NAME': 'vadecol_db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'duranjo',
         'PASSWORD': 'Emprendimiento_2013',
@@ -65,7 +64,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), 'static/'))
+STATIC_ROOT = '/static/'
+
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -129,16 +129,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'basicoDuranjo.urls'
+ROOT_URLCONF = 'vadecol.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'basicoDuranjo.wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+WSGI_APPLICATION = 'vadecol.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -149,6 +143,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
+    'vadecol.apps.homepage',
+    'tagging',
+    'mptt',
+    'zinnia',
+    'django_comments',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

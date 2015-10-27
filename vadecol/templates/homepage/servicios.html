@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Servicios Ofrecidos - Vadecol
+{% endblock %}
+{% block head %} 
+<meta name="description" content="">
+{% endblock%}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/servicios.css' %}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+{% block contenido %}
+<section class="quienessomos">
+	<div class="banner">
+		<div class="textBanner">
+			GARANTIZAMOS 
+			<span>- Nuestra disponibilidad las 24 horas del día -</span>
+		</div>
+	</div>
+	<section class="servicios">
+		<div class="wrapper">
+			<img src="{% static 'img/guardia.png' %}" alt="guardia de seguridad vadecol">
+			<div class="serviciosContent">
+				<h1>Servicios Vadecol</h1>
+				<h2>Nuestros servicios están dirigidos</h2>
+				<p>A entidades bancarias, conjuntos residenciales, industrias, centros comerciales, contratistas petroleras, y en cualquier otro sitio donde se haga necesaria la presencia de Vadecol.</p>
+				<p><strong>Los servicios</strong> se cumplen según la solicitud de nuestros clientes garantizando nuestra disponibilidad las 24 horas del día, 365 días del año , con el personal de vigilantes,operadores,supervisores, coordinadores de servicio y gerente de operaciones en cada oficina, con el apoyo de nuestro centro de control desde nuestra <strong>sede principal en Ciudad Ojeda Estado Zulia</strong>. Igualmente se hacen evaluaciones permanentemente para evitar desviaciones en los procedimientos.</p>
+			</div>
+		</div>
+	</section>
+	<div class="barraAzul"></div>
+	<section class="ofrecemos">
+		<div class="wrapper">
+			<h2 class="mainTitleService">Actividades desarrolladas</h2>
+			<div class="servicesPreview">
+				<div class="service">
+					<div class="titleService">Vigilancia física</div>
+					<div class="iconService serviceuno"></div>
+					<div class="descriptionService">Oficiales y operadores de seguridad.</div>
+				</div>
+				<div class="service">
+					<div class="titleService">Patrullaje preventivo / Segway</div>
+					<div class="iconService servicedos"></div>
+					<div class="descriptionService">Especialmente para centros comerciales.</div>
+				</div>
+				<div class="service">
+					<div class="titleService">Supervisión y rondas</div>
+					<div class="iconService servicetres"></div>
+					<div class="descriptionService">Ronda Guardus (Reporte a clientes).</div>
+				</div>
+				<div class="service">
+					<div class="titleService">Centro de comunicaciones 24</div>
+					<div class="iconService servicecuatro"></div>
+					<div class="descriptionService">Teléfonia Celulares / Radio</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="recursos">
+		<div class="wrapper">
+			<div class="contentRecursos">
+				<h3>Recursos</h3>
+				<p>Vadecol, tiene su recurso principal en el personal que la integra, tanto en el área administrativa como operativa, contamos con registros y controles automatizados para todas las actividades que desplegamos, soportado por un software diseñado específicamente para Vadecol, por personal altamente calificado en el desarrollo de sistemas.</p>
+			</div>
+			<div class="contentRecursos">
+				<h3>ARMAMENTOS - EQUIPOS - VEHÍCULOS - COMUNICACIÓN</h3>
+				<p>Contamos con armamento autorizado por la dirección de armamento de la fuerza armada, vehículos debidamente identificados, lanchas, equipos de centralización de alarmas, circuito cerrado de televisión (cctv) los cuales ponemos a disposición de nuestros clientes.</p>
+			</div>
+		</div>
+	</section>
+	<section class="bannerAplicar">
+		<div class="wrapper">
+			<h2 class="titleExperiencia">Más de 23 años de experiencia</h2>
+			<div class="mensajePregunta">¿Desea formar parte de vadecol?</div>
+			<a class="enlaceAplicar" href="mailto:info@vadecol.com">Envía tu aplicación</a>
+		</div>
+	</section>
+</section>
+{% endblock%}

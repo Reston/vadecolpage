@@ -1,0 +1,28 @@
+header{
+	display: block;
+	height: 148px;
+}
+
+.banner{
+	background: url(../img/bannerquienes.png) no-repeat;
+	background-size: cover;
+	min-height: 229px; 
+	color: white;
+	font-size: 2em;
+}
+.banner .textBanner{
+	text-align: center;
+	padding-top: 5%; 
+	font-weight: 400;
+}
+.banner .textBanner span{
+	display: block;
+	font-size: 0.76em;
+	font-weight: 300;
+}
+
+@media screen and (max-width: 1000px){
+	header {
+		height: 240px;
+	}
+}

@@ -4,34 +4,106 @@
 <meta name="description" content="">
 {% endblock%}
 {% block title %}
-Duranjo Web
+Inicio - Vadecol
 {% endblock%}
 {% block css%}
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/homepage/index.css' %}">
 {% endblock %}
 {% block js %}
 <script type="text/javascript" src="{% static 'js/adquiridos/back-top.js' %}"></script>
 {% endblock %}
 {% block navi %}
-		<ul>
-			<li class="index"><a href="{% url 'homepageindex' %}">Inicio</a></li>
-			<li class="works"><a href="{% url 'homepageworks' %}">Trabajos</a></li>
-			<li class="services"><a href="{% url 'homepageservices' %}">Servicios</a></li>
-			<li class="contact"><a href="{% url 'homapagecontact' %}">Contacto</a></li>
-		</ul>				
+			
 {% endblock %}
 {% block clear %}{% endblock%}
 {% block contenido %}
 	<section class="bannerPrincipal">
-		<h1>Titulo importante</h1>
-		<div class="wrapper banner1">
+		<div class="wrapper">
+			<h1 class="principalTexto">
+				SEGURIDAD INTEGRAL A SU ALCANCE 
+				<span>Servicio de vigilancia y protección a personas y bienes.</span>
+			</h1>
+			<div class="principalImagen">
+				<div class="imagenGuardia"></div>
+			</div>
 		</div>
 	</section>
-	<section class="ofrecemos">		
+	<section class="ofrecemos">
+		<div class="wrapper">
+			<h2 class="mainTitleService">Servicios Vadecol</h2>
+			<div class="servicesPreview">
+				<div class="service">
+					<div class="titleService">Vigilancia física</div>
+					<div class="iconService serviceuno"></div>
+					<div class="descriptionService">Oficiales y operadores de seguridad.</div>
+					<div class="buttonService"><a href="{% url 'homepageservices' %}">Conocer más</a></div>
+				</div>
+				<div class="service">
+					<div class="titleService">Patrullaje preventivo / Segway</div>
+					<div class="iconService servicedos"></div>
+					<div class="descriptionService">Especialmente para centros comerciales.</div>
+					<div class="buttonService"><a href="{% url 'homepageservices' %}">Conocer más</a></div>
+				</div>
+				<div class="service">
+					<div class="titleService">Supervisión y rondas</div>
+					<div class="iconService servicetres"></div>
+					<div class="descriptionService">Ronda Guardus (Reporte a clientes).</div>
+					<div class="buttonService"><a href="{% url 'homepageservices' %}">Conocer más</a></div>
+				</div>
+			</div>
+		</div>
 	</section>
-	<section class="aboutus">		
+	<section class="porqueVadecol">
+		<div class="wrapper">
+			<h2 class="titleMainPorque">¿Por qué vadecol?</h2>
+			<p>Porque tenemos la experiencia, la capacidad operativa y logística, la infraestructura adecuada y al personal idóneo para cubrir sus necesidades en seguridad. Con nosotros puede estar seguro que su patrimonio estará a salvo.</p>
+		</div>
 	</section>
-	<section class="infoContacto">
+	<section class="bannerAplicar">
+		<div class="wrapper">
+			<div class="mensajePregunta">¿Desea formar parte de vadecol?</div>
+			<a class="enlaceAplicar" href="mailto:info@vadecol.com">Envía tu aplicación</a>
+		</div>
+	</section>
+	<section class="about">
+		<h2 class="titleAbout">Más de 23 años de experiencia</h2>
+		<h2>Nuestros clientes</h2>
+		<p>En Vadecol, estamos orgullosos de prestar una alta calidad de servicio a instituciones y empresas desde hace más de 23 años. Aquí les presentamos algunos de nuestros clientes:</p>
+		<div class="clientes">
+			{% for client in clientes %}
+				<div class="logo"><img src="{{client.imagen}}" alt="{{client.alt}}"></div>
+			{% endfor %}
+		</div>
+	</section>
+	<section class="blogContent">
+		<!-- ====================================== -->
+		<!-- Inicio sección de noticias -->
+		<!-- ====================================== -->
+		<div class="wrapper">
+			<h2>Últimas entradas</h2>
+			<div class="resumenNoticias">
+				{% for item in entradas %}
+					<div class="entrada">
+						{% if item.image %}
+							<img src="{{ MEDIA_URL }}{{item.image}}" width ="298" height="199" alt="{{ item.title }}">
+						{% else %}
+							<img src="{% static 'img/logo.png' %}" alt="logo vadecol">
+						{% endif %}
+						<div class="tituloNoticia">{{ item.title }}</div>
+						<div class="resumen">
+							<span class="fechaNoticia">Fecha: {{ item.creation_date|date:"SHORT_DATE_FORMAT" }}</span>
+							{% autoescape off %}
+							<p>{{item.content}}...</p>
+							{% endautoescape %}
+						</div>
+						<a href="{{ item.get_absolute_url }}" class="leerMas">Leer más</a>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="masNoticias">
+				<a href="/blog"><div class="leerMasNoticias">Ver todas las entradas</div></a>
+			</div>
 	</section>
 	<!-- BACK TOP BOX -->
 	<div id="back-top" class="back-top">

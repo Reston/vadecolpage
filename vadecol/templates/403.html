@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+Página con acceso denegado - Vadecol
+{% endblock %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/500and404.css' %}">
+{% endblock%}
+{% block contenido %}
+<section class="fondoerror">
+	Error 403: Acceso limitado.
+</section>
+{% endblock %}

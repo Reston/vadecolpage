@@ -1,18 +1,56 @@
-{% extends 'homepage/index.html' %}
+{% extends 'base.html' %}
+{% load staticfiles %}
 {% block title %}
-Trabajos realizados - Duranjo
+Quiénes somos - Vadecol
 {% endblock %}
+{% block head %} 
+<meta name="description" content="">
+{% endblock%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/quienesomos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/quienesomos.css' %}">
 {% endblock %}
 {% block js %}
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 {% endblock %}
 {% block contenido %}
 <section class="quienessomos">
-	<div class="wrapper">
-		<div class="tituloStyle"><h2>libre</h2></div>
+	<div class="banner">
+		<div class="textBanner">
+			CON MÁS DE 23 AÑOS DE EXPERIENCIA 
+			<span>En el campo de la seguridad</span>
+		</div>
 	</div>
+	<div class="wrapper">
+		<h1>¿Quiénes Somos?</h1>
+		<p class="introQuienesomos">Iniciamos nuestras actividades en el año 1992, en el Estado Zulia, prestando el servicio de Vigilancia y protección a personas y bienes apegados a las leyes que regulan esta clase de empresas. Con más de <strong>23 años de experiencia</strong> en el campo de seguridad, <strong>VADECOL</strong> se ha consolidado en el mercado como una de las mejores empresas del Estado Zulia.
+		</p>
+		<div class="misionvision">
+			<div class="mision">
+				<h2>Misión</h2>
+				<p>Prestar servicios de protección integral, ofreciendo soluciones puntuales adaptadas a las necesidades de nuestros clientes, con el respaldo del más destacado equipo profesional, estándares de calidad, tecnología de punta, ética y excelencia para satisfacción de nuestros clientes.</p>
+			</div>
+			<div class="vision">
+				<h2>Visión</h2>
+				<p>Ser la organización a nivel nacional especializada en el área de seguridad en todos sus niveles, sustentada en las ventajas competitivas que significa la calidad de su gente, la innovación de sus productos apoyada en la tecnología y mejoramiento continuo de sus procesos; generando de esta forma confianza en nuestros clientes.</p>
+			</div>
+		</div>
+		<div class="valores">
+			<h2>Valores</h2>
+			<ul>
+				<li>Honestidad</li>/
+				<li>Responsabilidad</li>/
+				<li>Pro-actividad</li>/
+				<li>Seguridad</li>/
+				<li>Familia</li>
+			</ul>
+		</div>
+	</div>
+	<section class="bannerAplicar">
+		<div class="wrapper">
+			<div class="mensajePregunta">¿Desea formar parte de vadecol?</div>
+			<a class="enlaceAplicar" href="mailto:info@vadecol.com">Envía tu aplicación</a>
+		</div>
+	</section>
 </section>
 {% endblock%}

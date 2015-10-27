@@ -11,10 +11,12 @@
 <meta name="author" content="vadecol c.a.">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-{% block head %} {% endblock%}
+{% block head %}<meta name="description" content="Página web servicios Vadecol">{% endblock%}
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 <title>{% block title %} {% endblock%}</title>
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% block css %}
 {% endblock %}
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -33,23 +35,51 @@
 	  ga('send', 'pageview');
 	</script> -->
 	<header id="home" class="cabecera">
-		<div class="wrapper">				
+		<div class="wrapper">
+			<div class="logo">
+				<a href="{% url 'homepageindex' %}"><img src="{% static 'img/logo.png' %}" alt="logo vadecol"></a>
+			</div>	
 			<nav class="barraNavegacion">
-				{% block navi %} {% endblock%}
+				<ul>
+					<li class="index"><a href="{% url 'homepageindex' %}">Inicio</a></li>/
+					<li class="works"><a href="{% url 'homepageabout' %}">Quiénes Somos</a></li>/
+					<li class="services"><a href="{% url 'homepageservices' %}">Servicios</a></li>/
+					<li class="blog"><a href="/blog">Blog</a></li>/
+					<li class="contact"><a href="{% url 'homapagecontact' %}">Contacto</a></li>
+				</ul>
 			</nav>
 		</div>
 	</header>
 	<section class="contenido">
-		{% block contenido %} {% endblock%}
+		{% block contenido %}{% endblock%}
 	</section>
-	{% block clear %} {% endblock %}
+	{% block clear %}{% endblock %}
 	<footer>
-		{% block footer %}{% endblock%}
-		<div class="wrapper">
-			<div class="footer-der">
+		<div class="barraNavegacionFooter">
+			<div class="wrapper">
+				<div class="itemNavegacionFooter"><a href="">Inicio</a></div>
+				<div class="itemNavegacionFooter"><a href="">Quiénes Somos</a></div>
+				<div class="itemNavegacionFooter"><a href="">Servicios</a></div>
+				<div class="itemNavegacionFooter"><a href="">Blog</a></div>
+				<div class="itemNavegacionFooter"><a href="">Contacto</a></div>
 			</div>
-			<div class="footer-izq">
-			</div>		  
+		</div>
+		<div class="wrapper">
+			<div class="footerinfo">
+				<div class="telefonos">Teléfonos</div>
+				<div class="infoText"><a href="tel:582656319998">(0265) 631-9998</a> / <a href="tel:582656312043">(0265) 631-2043</a></div>
+			</div>
+			<div class="footerinfo">
+				<div class="correo">Correo</div>
+				<div class="infoText"><a href="mailto:info@vadecol.com">info@vadecol.com</a></div>
+			</div>
+			<div class="footerinfo">
+				<div class="direccion">Dirección</div>
+				<div class="infoText">Ciudad ojeda, estado Zulia.</div>
+			</div>	  
+		</div>
+		<div class="copyright">
+			VADECOL © 2015. Todos los derechos reservados.
 		</div>
 	</footer>
 </body>

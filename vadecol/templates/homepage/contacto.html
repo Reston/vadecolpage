@@ -1,81 +1,123 @@
-{% extends 'homepage/index.html' %}
+{% extends 'base.html' %}
+{% load staticfiles %}
 {% block title %}
-Contacto - Duranjo
+Contacto - Vadecol
 {% endblock %}
+{% block head %} 
+<meta name="description" content="">
+{% endblock%}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/contacto.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/contacto.css' %}">
 {% endblock %}
 {% block js %}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'js/propios/selectable.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(10.193271,-71.318833);
+  var mapOptions = {
+    zoom: 16,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'VADECOL C.A. Edificio Zulia'
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 {% endblock %}
 {% block contenido %}
-	<section class="fondoContacto">
-		<div class="wrapper">
-		<div class="tituloStyle">
-			<h2>Contacto</h2>
-			<div class="lineatitulo"></div>
-		</div>		
-		{% if success %}
-		<div class="mensajeenviado">
-			<div class="enviado">Su mensaje ha sido enviado correctamente, pronto nos pondremos en contacto con usted.</div>
-			<img class="sobre" src="{{ STATIC_URL }}img/sobre.png" alt="formulario de contacto">	
+	<div class="banner">
+		<div class="textBanner">
+			CONSOLIDADOS 
+			<span>- Como una de las mejores empresas -</span>
 		</div>
-		{% else %}
-		{% if form.errors %}
-        <p>
-            Por favor corregir los errores debajo.
-        </p>
-   		{% endif %}
-		<form action="#" method="POST">
-			{% csrf_token %}
-			<div class="campo">
-				{{ field.errors }}
-				<label for="nombre">Nombre:</label>
-				{{ form.nombre }}
-				{{ form.nombre.errors }}
+	</div>
+	<div class="wrapper">
+			<section class="formularioContacto">
+				<h2>Formulario</h2>
+			{% if success %}
+				<div class="mensajeenviado">
+					<div class="enviado">Su mensaje ha sido enviado correctamente, pronto nos pondremos en contacto con usted.</div>
+					<img class="sobre" src="{{ STATIC_URL }}img/sobre.png" alt="formulario de contacto">	
+				</div>
+			{% else %}
+				{% if form.errors %}
+				<p>
+					Por favor corregir los errores debajo.
+				</p>
+				{% endif %}
+				<form action="#" method="POST">
+					{% csrf_token %}
+					<div class="campo">
+						{{ field.errors }}
+						<label for="nombre">Razón Social:</label>
+						{{ form.nombre }}
+						{{ form.nombre.errors }}
+					</div>
+						<div class="campo">
+						{{ field.errors }}
+						<label for="rif">RIF o Cédula:</label>
+						{{ form.rif }}
+						{{ form.rif.errors }}
+					</div>
+					<div class="campo">				
+						{{ field.errors }}
+						<label for="email">Correo Electrónico:</label>
+						{{ form.email }}
+						{{ form.email.errors }}
+					</div>
+					<div class="campo">
+						{{ field.errors }}
+						<label for="telefono">Teléfono:</label>
+						{{ form.telefono }}
+						{{ form.telefono.errors }}
+					</div>
+					<div class="textareaDescripcion campo">
+						{{ field.errors }}
+						<label for="texto">Mensaje: </label>
+						{{ form.texto }}
+						{{ form.texto.errors }}
+					</div>
+					{{ form.website }}
+					{{ form.website.errors}}
+					<div class="botonEnviar">
+						<input type="submit">
+					</div>
+				</form>
+			{% endif %}
+		</section>
+		<section class="informacionContacto">
+			<h2>Información</h2>
+			<div class="infoContacto">
+				<div class="opcionesContacto">
+					<div class="opcionInfo">
+						<div class="tituloOpcionInfo"><div class="telefonos"></div>Teléfonos:</div>
+						<div class="infoOpcion">
+							<ul class="telefonosNumeros">
+								<li>(0265) 6319998</li>
+								<li>(0265) 6312043</li>
+							</ul>
+						</div>
+					</div>
+					<div class="opcionInfo">
+						<div class="tituloOpcionInfo"><div class="correo"></div>Correo:</div>
+						<div class="infoOpcion">info@vadecol.com</div>
+					</div>
+					<div class="opcionInfo">
+						<div class="tituloOpcionInfo"><div class="direccion"></div>Dirección:</div>
+						<div class="infoOpcion">Dirección: Av. Intercomunal, Edificio Zulia, Piso 1, Oficina 102 Ciudad Ojeda</div>
+					</div>
+				</div>
 			</div>
-			<div class="campo">				
-				{{ field.errors }}
-				<label for="email">Correo Electrónico:</label>
-				{{ form.email }}
-				{{ form.email.errors }}
-			</div>
-			<div class="campo">
-				{{ field.errors }}
-				<label for="telefono">Teléfono:</label>
-				{{ form.telefono }}
-				{{ form.telefono.errors }}
-			</div>
-			<div class="textareaDescripcion">
-				{{ field.errors }}
-				<label for="texto">Breve descripción de su proyecto: </label>
-				{{ form.texto }}
-				{{ form.texto.errors }}
-			</div>
-			<div class="botonEnviar">
-				<input type="submit">
-			</div>
-		</form>
-		{% endif %}
-		<div class="tituloStyle">
-			<h2>Información de contacto</h2>
-			<div class="lineatitulo"></div>
-		</div>	
-		<section class="infoContacto">
 		</section>
 	</div>
-	</section>
-	<!-- FACEBOOK SCRIPT -->
-			<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- TWITTER SCRIPT -->
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<div class="map">
+				<div id="map-canvas"></div>
+			</div>
 {% endblock%}
