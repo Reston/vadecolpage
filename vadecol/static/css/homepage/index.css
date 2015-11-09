@@ -175,3 +175,43 @@
 	text-decoration: none;
 	color: white;
 }
+@media screen and (max-width: 1060px){
+	.bannerPrincipal {
+		overflow: hidden;
+	}
+}
+
+@media screen and (max-width: 940px){
+	.bannerPrincipal{
+		height: auto;
+		min-height: auto;
+	}
+	.principalTexto {
+		width: 100%;
+		padding-top: 5%;
+	}
+
+	
+	.bannerAplicar .enlaceAplicar {
+		text-shadow: 1px 1px 1px #000;
+	}
+}
+
+@media screen and (max-width: 730px){
+	.servicesPreview .service {
+		width: 100%;
+	}
+	.bannerAplicar .mensajePregunta {
+		text-shadow: 1px 1px 1px #FFF;
+		text-align: center;
+	}
+	.bannerAplicar .enlaceAplicar {
+		text-align: center;
+	}
+	.about .titleAbout::after{
+		display: none;
+	}
+	.entrada {
+		width: 100%;
+	}
+}

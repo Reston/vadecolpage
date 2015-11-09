@@ -70,3 +70,18 @@ p{
 	text-transform: uppercase;
 	color: black;
 }
+
+@media screen and (max-width: 730px){
+	.introQuienesomos {
+		margin: 0;
+	}
+	.introQuienesomos::before{
+		display: none;
+	}
+	.misionvision .mision, .misionvision .vision {
+		width: 100%;
+	}
+	.valores ul li {
+		width: 100%;
+	}
+}

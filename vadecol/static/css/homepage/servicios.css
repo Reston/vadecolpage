@@ -126,3 +126,31 @@ h2{
 	top: -30px;
 	right: -30px;
 }
+@media screen and (max-width: 1030px){
+	.titleExperiencia::after {
+		display: none;
+	}
+	.servicesPreview .service {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 720px){
+	.servicios img {
+		display: none;
+	}
+	.servicios .serviciosContent {
+		width: 96%;
+		padding: 2%
+	}
+	.servicesPreview .service {
+		width: 100%;
+	}
+	.titleExperiencia::after {
+		display: none;
+	}
+	.recursos .contentRecursos {
+		width: 94%;
+		padding: 2%;
+	}
+}
